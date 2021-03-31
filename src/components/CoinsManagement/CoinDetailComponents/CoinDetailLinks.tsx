@@ -14,23 +14,23 @@ interface CoinDetailLinksProps {
 const CoinDetailLinks: React.FC<CoinDetailLinksProps> = (({ coin }: CoinDetailLinksProps) => (
     <>
         {coin && coin.links
-            ? <Box display="flex" flexDirection="row" alignItems="center">
-                  {coin.links.homepage.length > 0 && coin.links.homepage[0] !== "" &&
+            ? <Box display="flex" flexDirection="row" alignItems="center" justifyContent="center">
+                {coin.links.homepage.length > 0 && coin.links.homepage[0] !== "" &&
                     <IconButton href={coin.links.homepage[0]} target="_blank">
                         <LanguageIcon color="primary" />
                     </IconButton>
                 }
-                 {coin.links.official_forum_url.length > 0 && coin.links.official_forum_url[0] !== "" &&
+                {coin.links.official_forum_url.length > 0 && coin.links.official_forum_url[0] !== "" &&
                     <IconButton href={coin.links.official_forum_url[0]} target="_blank">
                         <ForumIcon color="primary" />
                     </IconButton>
                 }
-                {coin.links.twitter_screen_name && 
+                {coin.links.twitter_screen_name &&
                     <IconButton href={`https://twitter.com/${coin.links.twitter_screen_name}`} target="_blank">
                         <TwitterIcon color="primary" />
                     </IconButton>
                 }
-                {coin.links.facebook_username && 
+                {coin.links.facebook_username &&
                     <IconButton href={`https://www.facebook.com/${coin.links.facebook_username}/`} target="_blank">
                         <FacebookIcon color="primary" />
                     </IconButton>

@@ -11,6 +11,7 @@ import { Redirect } from 'react-router-dom';
 import CoinDetailDescription from './CoinDetailComponents/CoinDetailDescription';
 import CoinDetailLinks from './CoinDetailComponents/CoinDetailLinks';
 import CoinDetailCommunityData from './CoinDetailComponents/CoinDetailCommunityData';
+import CoinDetailGithubData from './CoinDetailComponents/CoinDetailGithubData';
 
 const CoinDetail = () => {
     const [coin, setCoin] = useState<CoinDetailed>();
@@ -47,17 +48,21 @@ const CoinDetail = () => {
                     <Button 
                         size="small" 
                         color="primary"
+                        variant="contained"
                         onClick={handleNavigateBack}
                     >
-                        Back
+                        back to list
                     </Button>
                     <Box m={1}>
                         <Card style={{ maxHeight: "500px", maxWidth: "900px", overflowY: "auto" }}>
                         <CardContent>
-                            <Box component={'h2'}>{coin.name}</Box>
+                            <Box display="flex" alignItems="center" justifyContent="space-between">
+                                <Box component={'h2'}>{coin.name}</Box>
+                                <CoinDetailLinks coin={coin} />
+                            </Box>
                             <Box component={'h4'}>Current price: {coin.market_data.current_price['usd']} USD</Box>
                             <CoinDetailDescription coin={coin} />
-                            <CoinDetailLinks coin={coin} />
+                            <CoinDetailGithubData coin={coin} />
                             <CoinDetailCommunityData coin={coin} />
                         </CardContent>
                         </Card>
