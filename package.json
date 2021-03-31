@@ -16,16 +16,17 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.1.6",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "env-cmd": "^10.1.0",
+    "highcharts-react-official": "^3.0.0",
     "node-sass": "^4.14.1",
-    "react-scripts": "4.0.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-toast": "^1.0.1",
     "react-router-dom": "^5.2.0",
-    "typescript": "^4.1.2",
-    "react-hot-toast": "^1.0.1"
+    "react-scripts": "4.0.3",
+    "typescript": "^4.1.2"
   },
   "scripts": {
     "start": "react-scripts start",

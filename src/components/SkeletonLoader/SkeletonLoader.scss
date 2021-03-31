@@ -1,0 +1,29 @@
+  @media only screen and (max-width: 1300px) {
+    .Skeleton_FourthColumn {
+      display: none !important;
+    }
+
+    .Skeleton_FirstColumn, .Skeleton_ThirdColumn, .Skeleton_SecondColumn{
+        width: 33% !important;
+    }
+  }
+
+  @media only screen and (max-width: 925px) {
+    .Skeleton_ThirdColumn, .Skeleton_FourthColumn {
+      display: none !important;
+    }
+
+    .Skeleton_FirstColumn, .Skeleton_SecondColumn{
+        width: 50% !important;
+    }
+  }
+
+  @media only screen and (max-width: 610px) {
+    .Skeleton_SecondColumn, .Skeleton_ThirdColumn, .Skeleton_FourthColumn{
+      display: none !important;
+    }
+
+    .Skeleton_FirstColumn{
+        width: 100% !important;
+    }
+  }

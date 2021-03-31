@@ -14,21 +14,21 @@ export interface FetchCoinsApiParams {
 }
 
 /**
- *  Get movies list
+ *  Get coins list
  *
  * Endpoints:
- * - GET /search/movie/?query={query}
+ * - GET /coins/markets?vs_currency=usd
  *
- * @returns Promise<FetchMoviesApiResponse>
+ * @returns Promise<FetchCoinsApiResponse>
  */
 
 export const fetchCoinsApi = (params: FetchCoinsApiParams): Promise<FetchCoinsApiResponse> => (
     axios.get([
         `${process.env.REACT_APP_API_ENDPOINT}/coins/markets?vs_currency=usd`,
         params
-        && params.perPage
-        ? `&per_page=${params.perPage}`
-        : "",
+            && params.perPage
+            ? `&per_page=${params.perPage}`
+            : "",
         params
             && params.page
             ? `&page=${params.page}`

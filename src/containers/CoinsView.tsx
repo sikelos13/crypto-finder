@@ -112,12 +112,6 @@ class CoinsView extends Component<{}, CoinsViewState> {
     //     }
     // }
 
-    handleCoinDetails = (id: string) => {
-        if (id && id !== "") {
-            history.push(`/${id}/details`, id)
-        }
-    }
-
     render() {
         const {
             coinsList,
@@ -135,13 +129,13 @@ class CoinsView extends Component<{}, CoinsViewState> {
                         flexDirection="row"
                         flexWrap="wrap"
                         justifyContent="space-evenly"
-                        style={{ overflowY: 'auto', maxHeight: 'calc(100vh - 310px)' }}
+                        style={{ overflowY: 'auto', maxHeight: 'calc(100vh - 180px)' }}
                         id="listScroll"
                         // onScroll={this.handleScroll}
                     >
                         {loading === "initial_load"
                             ? <SkeletonLoader />
-                            : <CoinsList coinsList={coinsList} handleCoinDetails={this.handleCoinDetails} />
+                            : <CoinsList coinsList={coinsList} />
                         }
 
                     </Box>

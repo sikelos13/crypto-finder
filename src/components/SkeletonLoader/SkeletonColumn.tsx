@@ -3,7 +3,7 @@ import { SkeletonCard } from './components/SkeletonCard';
 
 export const SkeletonColumn = () => {
     return (
-        <Box width="33%" mr={5} p={3}>
+        <Box>
             <SkeletonCard />
             <SkeletonCard />
             <SkeletonCard />
