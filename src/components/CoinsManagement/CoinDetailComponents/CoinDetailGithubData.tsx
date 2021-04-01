@@ -18,14 +18,15 @@ const CoinDetailGithubData: React.FC<CoinDetailGithubDataDataProps> = (({ coin }
                 </Box>
                 {Object.keys(githubDataOptions).map((name: string) => {
                     const uniqueId = generateId();
-                    
+
                     return (
                         <Box key={uniqueId} >
-                            {coin.developer_data[name] &&
-                                <Box display="flex" p="5px">
+                            {coin.developer_data[name] 
+                                ? <Box display="flex" p="5px">
                                     <Box component={'span'} fontWeight="bold" mr="5px">{githubDataOptions[name]}</Box>
                                     <Box component={'span'}>{coin.developer_data[name]}</Box>
                                 </Box>
+                                : null
                             }
                         </Box>
                         )

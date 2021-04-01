@@ -2,11 +2,11 @@ import axios from 'axios';
 import { handleErrorMessage } from './utils/handleErrorMessage';
 import { CoinDetailed } from './types/CoinDetailed';
 
-export interface FetchCoinApiResponse {
+export interface FetchMarketChartApiResponse {
     success: boolean;
     errorMessage: string;
     status: number
-    data: CoinDetailed;
+    data: any;
 }
 
 /**
@@ -18,12 +18,25 @@ export interface FetchCoinApiResponse {
  * @returns Promise<FetchMoviesApiResponse>
  */
 
-export const fetchCoinApi = (id: string): Promise<FetchCoinApiResponse> => (
+ export interface FetchMarketChartApiParams {
+    id: string;
+    days: string;
+}
+
+
+export const fetchMarketChart = (params: FetchMarketChartApiParams): Promise<FetchMarketChartApiResponse> => (
     axios.get([
         `${process.env.REACT_APP_API_ENDPOINT}/coins/`,
-        id && id !== ""
-            ? `${id}`
-            : "",
+        params
+            && params.id
+            && params.id !== ""
+                ? `${params.id}/market_chart`
+                : "",
+        params
+            && params.days
+            && params.days !== ""
+                ? `?vs_currency=usd&days=${params.days}`
+                : ''
     ].join(""))
         .then((response: any) => {
             return {

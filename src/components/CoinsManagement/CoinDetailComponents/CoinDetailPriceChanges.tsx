@@ -12,18 +12,19 @@ const CoinDetailPriceChanges: React.FC<CoinDetailPriceChangesProps> = (({ coin }
     <>
         {coin && coin.market_data &&
             <>
-                <Box component='h4' textAlign="center">Price changes (USD) </Box>
+                <Box component='h4' textAlign="center">Price changes (USD)</Box>
                 <Box display="flex" justifyContent="center" pl="10px">
                     {Object.keys(priceChangesOptions).map((name: string) => {
                         const uniqueId = generateId();
 
                         return (
                             <Box key={uniqueId} >
-                                {coin.market_data[name]&&
-                                    <Box key={uniqueId} display="flex" flexDirection="column" p="5px">
+                                {coin.market_data[name]
+                                    ? <Box display="flex" flexDirection="column" p="5px">
                                         <Box component={'span'} fontWeight="bold" mr="5px">{priceChangesOptions[name]}</Box>
                                         <Box component={'span'}>{coin.market_data[name]}</Box>
                                     </Box>
+                                    : null
                                 }
                             </Box>
                         )})

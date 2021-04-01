@@ -15,6 +15,7 @@ import CoinDetailGithubData from './CoinDetailComponents/CoinDetailGithubData';
 import CoinDetailPriceChanges from './CoinDetailComponents/CoinDetailPriceChanges';
 import SkeletonLoaderDetails from "../../components/SkeletonLoaderDetails";
 import CoinDetailHighLowPrice from './CoinDetailComponents/CoinDetailHighLowPrice';
+import PriceHighCharts from './CoinDetailComponents/PriceHighCharts';
 
 const CoinDetail = () => {
     const [coin, setCoin] = useState<CoinDetailed>();
@@ -75,10 +76,11 @@ const CoinDetail = () => {
                                     <Box component={'span'} fontWeight="bold" mr="5px">Down votes (%):</Box>
                                     <Box component={'span'}>{coin.sentiment_votes_down_percentage}%</Box>
                                 </Box>
-                                <CoinDetailPriceChanges coin={coin} />
                                 <CoinDetailHighLowPrice coin={coin} />
+                                <CoinDetailPriceChanges coin={coin} />
                             </CardContent>
                         </Card>
+                        <PriceHighCharts coinId={coin.id} />
                     </Box>
                 </Box>
                 : <SkeletonLoaderDetails />

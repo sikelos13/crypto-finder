@@ -4,12 +4,10 @@ export const initState = (): CoinsViewState => {
 
     const state: CoinsViewState = {
         coinsList: [],
-        loading: null,
+        loading: false,
         pagination: {
             page: 1,
             perPage: 20,
-            total_results: 0,
-            total_pages: 0,
             hasNextPage: false
         }
     }
