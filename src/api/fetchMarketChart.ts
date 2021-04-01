@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { handleErrorMessage } from './utils/handleErrorMessage';
-import { CoinDetailed } from './types/CoinDetailed';
 
 export interface FetchMarketChartApiResponse {
     success: boolean;

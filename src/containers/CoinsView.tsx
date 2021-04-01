@@ -18,7 +18,6 @@ export interface CoinsViewState {
 class CoinsView extends Component<{}, CoinsViewState> {
     constructor(props: any) {
         super(props);
-
         this.state = initState();
     }
 
@@ -45,7 +44,7 @@ class CoinsView extends Component<{}, CoinsViewState> {
                     coinsList: response.data,
                     loading: false,
                     pagination: {
-                        page: Number(currentPage),
+                        page: params.page,
                         perPage: 20,
                         hasNextPage: response.data.length === 20,
                     },
