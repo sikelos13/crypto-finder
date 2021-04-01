@@ -88,7 +88,7 @@ class CoinsView extends Component<{}, CoinsViewState> {
                     coinsList={coinsList}
                     handlePaginate={this.handlePaginate}
                 />
-                <Box display="flex" justifyContent="center" flexDirection="row" className="MainContainer_Body">
+                <Box display="flex" justifyContent="center" flexDirection="row">
                     <Box
                         mt={2}
                         pb={2}

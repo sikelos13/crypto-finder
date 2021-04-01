@@ -12,7 +12,7 @@ interface CoinDetailGithubDataDataProps {
 const CoinDetailGithubData: React.FC<CoinDetailGithubDataDataProps> = (({ coin }: CoinDetailGithubDataDataProps) => (
     <>
         {coin && coin.developer_data
-            ? <Box display="flex" alignItems="center" pl="10px">
+            ? <Box display="flex" alignItems="center" pl="10px" flexDirection="column">
                 <Box component="h4" display="flex" alignItems="center">
                     <GitHubIcon color="primary" /><Box fontWeight='bold' ml="5px">Github statistics:</Box>
                 </Box>
@@ -21,16 +21,13 @@ const CoinDetailGithubData: React.FC<CoinDetailGithubDataDataProps> = (({ coin }
 
                     return (
                         <Box key={uniqueId} >
-                            {coin.developer_data[name] 
-                                ? <Box display="flex" p="5px">
-                                    <Box component={'span'} fontWeight="bold" mr="5px">{githubDataOptions[name]}</Box>
-                                    <Box component={'span'}>{coin.developer_data[name]}</Box>
-                                </Box>
-                                : null
-                            }
+                            <Box display="flex" p="5px">
+                                <Box component={'span'} fontWeight="bold" mr="5px">{githubDataOptions[name]}</Box>
+                                <Box component={'span'}>{coin.developer_data[name] ? coin.developer_data[name] : 'N/A'}</Box>
+                            </Box>
                         </Box>
-                        )
-                    })
+                    )
+                })
                 }
             </Box>
             : <Box component="p">No data available</Box>

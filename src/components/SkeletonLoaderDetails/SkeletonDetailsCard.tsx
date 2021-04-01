@@ -8,7 +8,7 @@ export const SkeletonDetailsCard = () => {
             <Skeleton width="60%">
                 <Typography>.</Typography>
             </Skeleton>
-            <Skeleton variant="rect" width="100%" style={{ borderRadius: "5px", width: "900px", height: "400px"}}>
+            <Skeleton variant="rect" width="100%" style={{ borderRadius: "5px", width: "500px", height: "650px"}}>
                 <div style={{ paddingTop: '55%'}} />
             </Skeleton>
             <Skeleton width="60%">

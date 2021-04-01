@@ -19,7 +19,7 @@ cd netdata-assignment
 Create on the root folder a .env file and put inside our env var for API Endpoint and our API KEY 
 ```
 
-* **The api endpoint. (REACT_APP_API_ENDPOINT="https://api.themoviedb.org/3")**
+* **The api endpoint. (REACT_APP_API_ENDPOINT="https://api.coingecko.com/api/v3")**
 
 After the first step continue with our main set up and the installation of our modules.
 
@@ -29,11 +29,10 @@ npm run start
 ```
 
 ### Features implemented
-* Search field with on change search action (Debounce used here)
-* Show details of movie by click the card
-* Infinity scrolling for pagination
-* Movie trailer from embeded youtube video.
-* Sort by "Highest score average" or "Lowest score average"
+* Paginated list of coins and their overviews
+* Details view with extended information of the coin
+* Line chart with select dropdown for different data sets
+* Zoom in line chart for better visibility on big data sets.
 
 ### Testing build with
 

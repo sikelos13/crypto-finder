@@ -13,11 +13,11 @@ export const getChartConfig = (data: any) => ({
       },
       chart: {
         zoomType: 'x',
-        spacingBottom: 20,
-        spacingTop: 15,
-        spacingLeft: 5,
-        spacingRight: 5,
-        width: 850,
+        spacingBottom: 10,
+        spacingTop: 10,
+        spacingLeft: -5,
+        spacingRight: 3,
+        width: 500,
         height: 450
 },
     yAxis: {
