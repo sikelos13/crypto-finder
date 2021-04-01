@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Button } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -12,6 +12,9 @@ import CoinDetailDescription from './CoinDetailComponents/CoinDetailDescription'
 import CoinDetailLinks from './CoinDetailComponents/CoinDetailLinks';
 import CoinDetailCommunityData from './CoinDetailComponents/CoinDetailCommunityData';
 import CoinDetailGithubData from './CoinDetailComponents/CoinDetailGithubData';
+import CoinDetailPriceChanges from './CoinDetailComponents/CoinDetailPriceChanges';
+import SkeletonLoaderDetails from "../../components/SkeletonLoaderDetails";
+import CoinDetailHighLowPrice from './CoinDetailComponents/CoinDetailHighLowPrice';
 
 const CoinDetail = () => {
     const [coin, setCoin] = useState<CoinDetailed>();
@@ -43,10 +46,10 @@ const CoinDetail = () => {
 
     return (
         <>
-            {coin &&
-                <Box display="flex" alignItems="center" flexDirection="column" p={1} mt="30px">
-                    <Button 
-                        size="small" 
+            {coin
+                ? <Box display="flex" alignItems="center" flexDirection="column" p={1} mt="30px">
+                    <Button
+                        size="small"
                         color="primary"
                         variant="contained"
                         onClick={handleNavigateBack}
@@ -54,22 +57,33 @@ const CoinDetail = () => {
                         back to list
                     </Button>
                     <Box m={1}>
-                        <Card style={{ maxHeight: "500px", maxWidth: "900px", overflowY: "auto" }}>
-                        <CardContent>
-                            <Box display="flex" alignItems="center" justifyContent="space-between">
-                                <Box component={'h2'}>{coin.name}</Box>
-                                <CoinDetailLinks coin={coin} />
-                            </Box>
-                            <Box component={'h4'}>Current price: {coin.market_data.current_price['usd']} USD</Box>
-                            <CoinDetailDescription coin={coin} />
-                            <CoinDetailGithubData coin={coin} />
-                            <CoinDetailCommunityData coin={coin} />
-                        </CardContent>
+                        <Card style={{ maxHeight: "600px", maxWidth: "900px", overflowY: "auto" }}>
+                            <CardContent>
+                                <Box display="flex" alignItems="center" justifyContent="space-between">
+                                    <Box component={'h2'}>{coin.name}</Box>
+                                    <CoinDetailLinks coin={coin} />
+                                </Box>
+                                <Box component={'h4'}>Current price: {coin.market_data.current_price['usd']} USD</Box>
+                                <CoinDetailDescription coin={coin} />
+                                <CoinDetailGithubData coin={coin} />
+                                <CoinDetailCommunityData coin={coin} />
+                                <Box p="10px">
+                                    <Box component={'span'} fontWeight="bold" mr="5px">Up votes (%):</Box>
+                                    <Box component={'span'}>{coin.sentiment_votes_up_percentage}%</Box>
+                                </Box>
+                                <Box p="10px">
+                                    <Box component={'span'} fontWeight="bold" mr="5px">Down votes (%):</Box>
+                                    <Box component={'span'}>{coin.sentiment_votes_down_percentage}%</Box>
+                                </Box>
+                                <CoinDetailPriceChanges coin={coin} />
+                                <CoinDetailHighLowPrice coin={coin} />
+                            </CardContent>
                         </Card>
                     </Box>
                 </Box>
-                }   
-                {isRedirecting ? <Redirect to='/coins' /> : null}
+                : <SkeletonLoaderDetails />
+            }
+            {isRedirecting ? <Redirect to='/coins' /> : null}
         </>
     )
 }

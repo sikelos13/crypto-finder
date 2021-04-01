@@ -9,6 +9,7 @@ Netdata assignment using CRA and Coingecko API.
 * [React hot toast](https://github.com/timolins/react-hot-toast)
 * [Typescript](https://www.typescriptlang.org/docs/handbook/react.html)
 * [Axios](https://github.com/axios/axios)
+* [Date-fns](https://date-fns.org/)
 
 ### How to run 
 

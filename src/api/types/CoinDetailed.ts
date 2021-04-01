@@ -35,6 +35,7 @@ export interface CoinDetailed {
 }
 
 interface CommunityData {
+    [key: string]: number | null;
     facebook_likes: number | null;
     reddit_accounts_active_48h: number | null;
     reddit_average_comments_48h: number | null;
@@ -45,8 +46,9 @@ interface CommunityData {
 }
 
 interface DeveloperData {
+    [key: string]: number | null;
     closed_issues: number | null;
-    code_additions_deletions_4_weeks: {additions: null, deletions: null}
+    code_additions_deletions_4_weeks: any;
     commit_count_4_weeks: number | null;
     forks: number | null;
     last_4_weeks_commit_activity_series: any;
