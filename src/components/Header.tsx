@@ -12,7 +12,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ pagination, handlePaginate, coinsList }: HeaderProps) => {
     return (
-        <Box display="flex" flexDirection="row" justifyContent="space-around" alignItems="center">
+        <Box display="flex" flexDirection="row" justifyContent="space-around" alignItems="center" id="header-component">
             <Box component="h2" fontWeight="500" fontSize="2rem" color="#3569b8">Coins Finder</Box>
             <PaginationNavBar
                 coinsList={coinsList}

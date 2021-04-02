@@ -1,5 +1,5 @@
 let sessionCounter = 0;
 
-export default (): number => {
+export const generateId = (): number => {
     return Date.now() + sessionCounter++;
 };

@@ -1,17 +1,17 @@
 import React from 'react';
 import { Box } from '@material-ui/core';
-import { CoinDetailed } from '../../../api/types/CoinDetailed';
+import { CoinDetailedNormalized } from '../../../api/types/CoinDetailedNormalized';
 
 interface CoinDetailDescriptionProps {
-    coin: CoinDetailed;
+    coin: CoinDetailedNormalized;
 }
 
 const CoinDetailDescription: React.FC<CoinDetailDescriptionProps> = (({ coin }: CoinDetailDescriptionProps) => (
     <>
-        {coin && coin.description && coin.description['en']
+        {coin.description
             ? <Box display="flex" flexDirection="column">
                 <Box fontWeight='bold'>Description</Box>
-                <Box component="p" textAlign="justify" maxHeight="280px" style={{ overflowY: 'auto' }} dangerouslySetInnerHTML={{ __html: coin.description['en'] }}></Box>
+                <Box component="p" textAlign="justify" maxHeight="280px" style={{ overflowY: 'auto', padding: '10px' }} dangerouslySetInnerHTML={{ __html: coin.description }}></Box>
             </Box>
             : <Box component="p">No description available</Box>
         }

@@ -26,9 +26,12 @@ const CoinOverview: React.FC<CoinOverviewProps> = memo(({ coin }: CoinOverviewPr
                         <Box fontWeight="bold">{coin.name}</Box>
                         <Box display="flex" justifyContent="center" p="5px" m={1}>
                             {coin.image
-                                ? <img src={coin.image} alt="coin-image" width="60" height="60" className="Coin_Image" />
+                                ? <img src={coin.image} alt="coin" width="60" height="60" className="Coin_Image" />
                                 : <Box width="60px" height="60px" textAlign="center" fontSize="15px" fontWeight="bold">Without poster</Box>
                             }
+                        </Box>
+                        <Box component={'p'}>
+                            <Box component={'span'} fontWeight="bold">Symbol:</Box> <Box component={'span'}>{coin.symbol}</Box>
                         </Box>
                         <Box component={'p'}>
                             <Box component={'span'} fontWeight="bold">Currency price:</Box> <Box component={'span'}>{coin.current_price} USD</Box>

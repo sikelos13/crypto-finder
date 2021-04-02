@@ -1,29 +1,29 @@
 import React from 'react';
 import { Box } from '@material-ui/core';
-import { CoinDetailed } from '../../../api/types/CoinDetailed';
+import { CoinDetailedNormalized } from '../../../api/types/CoinDetailedNormalized';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import { githubDataOptions } from '../../../constants/GithubDataoptions';
-import generateId from '../../../utils/GenerateId';
+import { developerDataOptions } from '../../../constants/DeveloperDataoptions';
+import { generateId } from '../../../utils/GenerateId';
 
-interface CoinDetailGithubDataDataProps {
-    coin: CoinDetailed;
+interface CoinDetailDeveloperDataProps {
+    coin: CoinDetailedNormalized;
 }
 
-const CoinDetailGithubData: React.FC<CoinDetailGithubDataDataProps> = (({ coin }: CoinDetailGithubDataDataProps) => (
+const CoinDetailDeveloperData: React.FC<CoinDetailDeveloperDataProps> = (({ coin }: CoinDetailDeveloperDataProps) => (
     <>
-        {coin && coin.developer_data
+        {coin.developer_data
             ? <Box display="flex" alignItems="center" pl="10px" flexDirection="column">
                 <Box component="h4" display="flex" alignItems="center">
                     <GitHubIcon color="primary" /><Box fontWeight='bold' ml="5px">Github statistics:</Box>
                 </Box>
-                {Object.keys(githubDataOptions).map((name: string) => {
+                {Object.keys(developerDataOptions).map((name: string) => {
                     const uniqueId = generateId();
 
                     return (
                         <Box key={uniqueId} >
                             <Box display="flex" p="5px">
-                                <Box component={'span'} fontWeight="bold" mr="5px">{githubDataOptions[name]}</Box>
-                                <Box component={'span'}>{coin.developer_data[name] ? coin.developer_data[name] : 'N/A'}</Box>
+                                <Box component={'span'} fontWeight="bold" mr="5px">{developerDataOptions[name]}</Box>
+                                <Box component={'span'}>{coin.developer_data[name]}</Box>
                             </Box>
                         </Box>
                     )
@@ -36,4 +36,4 @@ const CoinDetailGithubData: React.FC<CoinDetailGithubDataDataProps> = (({ coin }
 ))
 
 
-export default CoinDetailGithubData;
+export default CoinDetailDeveloperData;

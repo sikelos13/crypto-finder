@@ -1,6 +1,6 @@
 import { ObjectOptions } from '../api/types/ObjectOptions';
 
-export const githubDataOptions: Record<string, string> = {
+export const developerDataOptions: Record<string, string> = {
     "closed_issues": "Closed issues:",
     "forks": "Forks:",
     "stars": "Stars:",
