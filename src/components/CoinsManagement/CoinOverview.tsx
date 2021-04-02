@@ -14,7 +14,7 @@ const CoinOverview: React.FC<CoinOverviewProps> = memo(({ coin }: CoinOverviewPr
 
     const handleCoinDetails = (id: string) => {
         if (id && id !== "") {
-            history.push(`/${id}/details`, id)
+            history.push(`/coin/${id}/details`, id)
         }
     }
 

@@ -10,7 +10,7 @@ export default class Routes extends Component<{}, {}> {
             <Container className="Main_Container" style={{ maxWidth: "1400px" }}>
                 <Switch>
                     <Route exact path={["/coins", "/"]} component={CoinsView} />
-                    <Route exact path="/:id/details" component={CoinDetail} />
+                    <Route exact path="/coin/:id/details" component={CoinDetail} />
                 </Switch>
             </Container>
         );

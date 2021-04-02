@@ -11,7 +11,7 @@ const CoinDetailSeeMore: React.FC<CoinDetailSeeMoreProps> = (({ similarCoinsList
 
     const handleLink = (id: string) => {
         if (id && id !== "") {
-            history.push(`/${id}/details`, id)
+            history.push(`/coin/${id}/details`, id)
         }
     }
 
