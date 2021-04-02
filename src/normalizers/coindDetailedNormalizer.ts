@@ -55,12 +55,12 @@ const getMarketData = (item: CoinDetailed) => {
         lowest_price_since_creation: item.market_data  && item.market_data.atl['usd'] && item.market_data.atl_date['usd'] ? `${String(item.market_data.atl['usd'])} USD on ${DateFormat.normalize(item.market_data.atl_date['usd'])}` : 'N/A',
         high_24h: item.market_data  && item.market_data.high_24h['usd'] ? `${String(item.market_data.high_24h['usd'])} USD` : 'N/A',
         low_24h: item.market_data  && item.market_data.low_24h['usd'] ? `${String(item.market_data.low_24h['usd'])} USD` : 'N/A',
-        price_change_percentage_24h: item.market_data  && item.market_data.price_change_percentage_24h ? item.market_data.price_change_percentage_24h : 'N/A',
-        price_change_percentage_7d: item.market_data && item.market_data.price_change_percentage_7d ? item.market_data.price_change_percentage_7d : 'N/A',
-        price_change_percentage_14d: item.market_data  && item.market_data.price_change_percentage_14d ? item.market_data.price_change_percentage_14d : 'N/A',
-        price_change_percentage_30d: item.market_data  && item.market_data.price_change_percentage_30d ? item.market_data.price_change_percentage_30d : 'N/A',
-        price_change_percentage_60d: item.market_data  && item.market_data.price_change_percentage_60d ? item.market_data.price_change_percentage_60d : 'N/A',
-        price_change_percentage_200d: item.market_data  && item.market_data.price_change_percentage_200d ? item.market_data.price_change_percentage_200d : 'N/A',
-        price_change_percentage_1y: item.market_data  && item.market_data.price_change_percentage_1y ? item.market_data.price_change_percentage_1y : 'N/A'
+        price_change_percentage_24h: item.market_data  && item.market_data.price_change_percentage_24h ? (item.market_data.price_change_percentage_24h).toFixed(2) : 'N/A',
+        price_change_percentage_7d: item.market_data && item.market_data.price_change_percentage_7d ? (item.market_data.price_change_percentage_7d).toFixed(2) : 'N/A',
+        price_change_percentage_14d: item.market_data  && item.market_data.price_change_percentage_14d ?(item.market_data.price_change_percentage_14d).toFixed(2) : 'N/A',
+        price_change_percentage_30d: item.market_data  && item.market_data.price_change_percentage_30d ? (item.market_data.price_change_percentage_30d).toFixed(2) : 'N/A',
+        price_change_percentage_60d: item.market_data  && item.market_data.price_change_percentage_60d ? (item.market_data.price_change_percentage_60d).toFixed(2) : 'N/A',
+        price_change_percentage_200d: item.market_data  && item.market_data.price_change_percentage_200d ? (item.market_data.price_change_percentage_200d).toFixed(2) : 'N/A',
+        price_change_percentage_1y: item.market_data  && item.market_data.price_change_percentage_1y ? (item.market_data.price_change_percentage_1y).toFixed(2) : 'N/A'
     }
 }

@@ -10,8 +10,8 @@ interface CoinDetailPriceChangesProps {
 
 const CoinDetailPriceChanges: React.FC<CoinDetailPriceChangesProps> = (({ coin }: CoinDetailPriceChangesProps) => (
     <>
-        <Box component='h4' textAlign="center">Price changes (USD)</Box>
-        <Box display="flex" justifyContent="center" pl="10px">
+        <Box component='h4' textAlign="left">Price changes (USD)</Box>
+        <Box display="flex" justifyContent="flex-start">
             {Object.keys(priceChangesOptions).map((name: string) => {
                 const uniqueId = generateId();
 

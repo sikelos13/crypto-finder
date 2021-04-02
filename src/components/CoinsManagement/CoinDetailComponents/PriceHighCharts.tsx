@@ -8,10 +8,8 @@ import Select from '@material-ui/core/Select';
 import { FormLabel } from '@material-ui/core';
 import { getChartConfig } from '../../../utils/getChartConfig';
 import toast from "react-hot-toast";
-import CoinDetailHighLowPrice from '../CoinDetailComponents/CoinDetailHighLowPrice';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import CoinDetailPriceChanges from '../CoinDetailComponents/CoinDetailPriceChanges';
 import { CoinDetailedNormalized } from '../../../api/types/CoinDetailedNormalized';
 
 interface PriceHighChartsProps {
@@ -67,7 +65,7 @@ const PriceHighCharts: React.FC<PriceHighChartsProps> = (({ coin }: PriceHighCha
     return (
         <>
             {chartConfig
-                ? <Card style={{ maxHeight: "800px", width: "550px", overflowY: "auto" }}>
+                ? <Card style={{ maxHeight: "560px", width: "650px", overflowY: "auto" }}>
                     <CardContent>
                         <Box display="flex" flexDirection="column" alignItems="flex-end">
                             <FormLabel>Duration of the chart</FormLabel>
@@ -90,8 +88,6 @@ const PriceHighCharts: React.FC<PriceHighChartsProps> = (({ coin }: PriceHighCha
                         <Box m={1} display='flex' justifyContent="center">
                             <HighchartsReact highcharts={Highcharts} options={chartConfig} />
                         </Box>
-                        <CoinDetailHighLowPrice coin={coin} />
-                        <CoinDetailPriceChanges coin={coin} />
                     </CardContent>
                 </Card>
                 : <SkeletonLoaderDetails />

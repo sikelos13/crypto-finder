@@ -18,14 +18,47 @@ import { fetchCoinsApi, FetchCoinsApiResponse } from '../../api/fetchCoins';
 import { getSeeMoreList } from '../../utils/getSeeMoreList';
 import { CoinSimple } from '../../api/types/CoinSimple';
 import CoinDetailSeeMore from '../CoinsManagement/CoinDetailComponents/CoinDetailSeeMore';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import CoinDetailPriceChanges from '../CoinsManagement/CoinDetailComponents/CoinDetailPriceChanges';
+import CoinDetailHighLowPrice from '../CoinsManagement/CoinDetailComponents/CoinDetailHighLowPrice';
+import { TabPanel } from '../Tabs/TabPanel';
+import { makeStyles, Theme } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme: Theme) => ({
+    root: {
+      flexGrow: 1,
+      backgroundColor: theme.palette.background.paper,
+      display: 'flex',
+      textAlign: 'left',
+      height: 224,
+    },
+    
+    tabs: {
+      borderRight: `1px solid ${theme.palette.primary}`,
+    },
+  }));
+
+function a11yProps(index: any) {
+    return {
+        id: `vertical-tab-${index}`,
+        'aria-controls': `vertical-tabpanel-${index}`,
+    };
+}
 
 const CoinDetail = () => {
     const [coin, setCoin] = useState<CoinDetailedNormalized>();
     const [isRedirecting, setRedirect] = useState(false);
     const [similarCoinsList, setSimilarCoins] = useState<CoinSimple[]>([]);
-    const initialLoad = useRef(true);
+    const [value, setValue] = useState(0);
+    const classes = useStyles();
 
+    const initialLoad = useRef(true);
     const id = history.location.state as string;
+
+    const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
+        setValue(newValue);
+    };
 
     const fetchCoinsList = () => {
         const currentPage = localStorage.getItem('currentPage');
@@ -60,6 +93,7 @@ const CoinDetail = () => {
         fetchCoinApi(id).then((response: FetchCoinApiResponse) => {
             if (isSubscribed && response.success) {
                 const normalizedCoin = normalizeCoinDetailed(response.data);
+                setValue(0);
                 setCoin(normalizedCoin);
             } else {
                 toast.error(response.errorMessage);
@@ -74,54 +108,78 @@ const CoinDetail = () => {
     const handleNavigateBack = () => {
         setRedirect(true);
     }
-
     return (
         <>
             <Box display="flex" flexDirection="column" p={1} mt="30px">
-                <Button
-                    size="small"
-                    color="primary"
-                    variant="contained"
-                    style={{ alignSelf: 'center' }}
-                    onClick={handleNavigateBack}
-                >
-                    back to list
-                    </Button>
+                <Box display="flex" p="5px" m="5px" justifyContent="flex-end">
+                    <Button
+                        size="small"
+                        color="primary"
+                        variant="contained"
+                        style={{ alignSelf: 'center' }}
+                        onClick={handleNavigateBack}
+                    >
+                        back to list
+                </Button>
+                </Box>
                 {coin
                     ? <Box m={1} display="flex" justifyContent="center" className="Detail_Card">
-                        <Card className="Detail_Card" style={{ maxHeight: "800px", width: "550px", overflowY: "auto", marginRight: '20px' }}>
-                            <CardContent>
-                                <Box display="flex" alignItems="center" justifyContent="space-between">
+                    
+                        <Box component={Card} className="Detail_Card" display="flex"  style={{ maxHeight: "560px", width: "650px", overflowY: "auto", marginRight: '20px' }}>
+                        <Tabs
+                            orientation='vertical'
+                            variant="scrollable"
+                            value={value}
+                            onChange={handleChange}
+                            className={classes.tabs}
+                        >
+                            <Tab label="General info" {...a11yProps(0)} />
+                            <Tab label="Data details" {...a11yProps(1)} />
+                            <Tab label="Coin price details" {...a11yProps(2)} />
+                        </Tabs>
+                            <Box component={CardContent}>
+                                <Box display="flex" alignItems="end" justifyContent="space-between">
                                     <Box fontWeight="bold">{coin.name}</Box>
                                     <CoinDetailLinks coin={coin} />
                                 </Box>
                                 <Box component={'h4'}>Current price: {coin.current_price}</Box>
-                                <CoinDetailDescription coin={coin} />
-                                <Box display="flex" justifyContent="space-around" mb="10px">
-                                    <CoinDetailDeveloperData coin={coin} />
-                                    <CoinDetailCommunityData coin={coin} />
-                                </Box>
-
-                                <Box display="flex" justifyContent="center">
-                                    <Box p="10px">
-                                        <Box component={'span'} fontWeight="bold" mr="5px">Up votes (%):</Box>
-                                        <Box component={'span'}>{coin.sentiment_votes_up_percentage}</Box>
+                                <TabPanel value={value} index={0}>
+                                    <CoinDetailDescription coin={coin} />
+                                </TabPanel>
+                                <TabPanel value={value} index={1}>
+                                    <Box display="flex" justifyContent="space-between" mb="10px">
+                                        <CoinDetailDeveloperData coin={coin} />
+                                        <CoinDetailCommunityData coin={coin} />
                                     </Box>
-                                    <Box p="10px">
-                                        <Box component={'span'} fontWeight="bold" mr="5px">Down votes (%):</Box>
-                                        <Box component={'span'}>{coin.sentiment_votes_down_percentage}</Box>
+                                    <Box display="flex" justifyContent="flex-start">
+                                        <Box p="10px">
+                                            <Box component={'span'} fontWeight="bold" mr="5px">Up votes (%):</Box>
+                                            <Box component={'span'}>{coin.sentiment_votes_up_percentage}</Box>
+                                        </Box>
+                                        <Box p="10px">
+                                            <Box component={'span'} fontWeight="bold" mr="5px">Down votes (%):</Box>
+                                            <Box component={'span'}>{coin.sentiment_votes_down_percentage}</Box>
+                                        </Box>
                                     </Box>
-                                </Box>
-                            </CardContent>
-                        </Card>
+                                </TabPanel>
+                                <TabPanel value={value} index={2}>
+                                    <Box>
+                                        <CoinDetailHighLowPrice coin={coin} />
+                                        <CoinDetailPriceChanges coin={coin} />
+                                    </Box>
+                                </TabPanel>
+                            </Box>
+                        </Box>
                         <PriceHighCharts coin={coin} />
                     </Box>
-                    : <Box display="flex" p={1} justifyContent="center" flexWrap="wrap">
+                    : <Box display="flex" p={1} justifyContent="center">
                         <SkeletonLoaderDetails />
                         <SkeletonLoaderDetails />
                     </Box>
                 }
-                <CoinDetailSeeMore similarCoinsList={similarCoinsList} />
+                 <Box>
+                    <CoinDetailSeeMore similarCoinsList={similarCoinsList} />
+                </Box>
             </Box>
 
             {isRedirecting ? <Redirect to='/coins' /> : null}

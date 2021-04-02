@@ -16,9 +16,9 @@ const CoinDetailSeeMore: React.FC<CoinDetailSeeMoreProps> = (({ similarCoinsList
     }
 
     return (
-        <Box maxWidth="1150px" alignSelf="center" mt="10px">
-            <Box fontWeight="bold" fontSize="20px" textAlign="center">More coins</Box>
-            <Box display="flex" flexDirection="row" flexWrap="wrap" justifyContent="center">
+        <Box maxWidth="1300px" alignSelf="center" mt="10px">
+            <Box fontWeight="bold" fontSize="20px" p="10px">More coins</Box>
+            <Box display="flex" flexDirection="row" flexWrap="wrap" justifyContent="flex-start">
                 {similarCoinsList && similarCoinsList.length > 0
                     ? similarCoinsList.map((coin: CoinSimple) => {
                         return (

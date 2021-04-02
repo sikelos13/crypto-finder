@@ -17,7 +17,7 @@ export const getChartConfig = (data: any) => ({
         spacingTop: 10,
         spacingLeft: -5,
         spacingRight: 3,
-        width: 500,
+        width: 600,
         height: 450
 },
     yAxis: {

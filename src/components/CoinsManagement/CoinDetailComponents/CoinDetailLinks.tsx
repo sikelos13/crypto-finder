@@ -14,24 +14,24 @@ interface CoinDetailLinksProps {
 const CoinDetailLinks: React.FC<CoinDetailLinksProps> = (({ coin }: CoinDetailLinksProps) => (
     <>
         {coin.links
-            ? <Box display="flex" flexDirection="row" alignItems="center" justifyContent="center">
+            ? <Box display="flex" flexDirection="row" alignItems="end" justifyContent="center">
                 {coin.links.homepage &&
-                    <IconButton href={coin.links.homepage} target="_blank">
+                    <IconButton href={coin.links.homepage} target="_blank" style={{ padding: '0', marginRight: '10px'}}>
                         <LanguageIcon color="primary" />
                     </IconButton>
                 }
                 {coin.links.official_forum_url &&
-                    <IconButton href={coin.links.official_forum_url} target="_blank">
+                    <IconButton href={coin.links.official_forum_url} target="_blank" style={{ padding: '0', marginRight: '10px'}}>
                         <ForumIcon color="primary" />
                     </IconButton>
                 }
                 {coin.links.twitter_screen_name &&
-                    <IconButton href={`https://twitter.com/${coin.links.twitter_screen_name}`} target="_blank">
+                    <IconButton href={`https://twitter.com/${coin.links.twitter_screen_name}`} target="_blank" style={{ padding: '0', marginRight: '10px'}}>
                         <TwitterIcon color="primary" />
                     </IconButton>
                 }
                 {coin.links.facebook_username &&
-                    <IconButton href={`https://www.facebook.com/${coin.links.facebook_username}/`} target="_blank">
+                    <IconButton href={`https://www.facebook.com/${coin.links.facebook_username}/`} target="_blank" style={{ padding: '0', marginRight: '10px'}}>
                         <FacebookIcon color="primary" />
                     </IconButton>
                 }
