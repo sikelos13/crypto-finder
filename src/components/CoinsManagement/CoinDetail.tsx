@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Box, Button } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -9,7 +9,7 @@ import CoinDetailDescription from './CoinDetailComponents/CoinDetailDescription'
 import CoinDetailLinks from './CoinDetailComponents/CoinDetailLinks';
 import CoinDetailCommunityData from './CoinDetailComponents/CoinDetailCommunityData';
 import CoinDetailDeveloperData from './CoinDetailComponents/CoinDetailDeveloperData';
-import SkeletonLoaderDetails from "../../components/SkeletonLoaderDetails";
+import SkeletonLoaderDetails from "../Loaders/SkeletonLoaderDetails";
 import PriceHighCharts from './CoinDetailComponents/PriceHighCharts';
 import toast from "react-hot-toast";
 import { normalizeCoinDetailed } from '../../normalizers/coindDetailedNormalizer';
@@ -23,6 +23,8 @@ const CoinDetail = () => {
     const [coin, setCoin] = useState<CoinDetailedNormalized>();
     const [isRedirecting, setRedirect] = useState(false);
     const [similarCoinsList, setSimilarCoins] = useState<CoinSimple[]>([]);
+    const initialLoad = useRef(true);
+
     const id = history.location.state as string;
 
     const fetchCoinsList = () => {
@@ -32,7 +34,7 @@ const CoinDetail = () => {
             page: currentPage === null ? 1 : Number(currentPage)
         };
 
-         fetchCoinsApi(params).then((response: FetchCoinsApiResponse) => {
+        fetchCoinsApi(params).then((response: FetchCoinsApiResponse) => {
             if (response.success) {
                 const newList = getSeeMoreList(response.data);
                 setSimilarCoins(newList);
@@ -48,7 +50,11 @@ const CoinDetail = () => {
         if (!id || id === "") {
             handleNavigateBack();
         }
-        fetchCoinsList();
+
+        if (initialLoad.current) {
+            initialLoad.current = false;
+            fetchCoinsList();
+        }
 
         setCoin(undefined);
         fetchCoinApi(id).then((response: FetchCoinApiResponse) => {
@@ -71,19 +77,19 @@ const CoinDetail = () => {
 
     return (
         <>
-             <Box display="flex" flexDirection="column" p={1} mt="30px">
-                    <Button
-                        size="small"
-                        color="primary"
-                        variant="contained"
-                        style={{ alignSelf: 'center'}}
-                        onClick={handleNavigateBack}
-                    >
-                        back to list
+            <Box display="flex" flexDirection="column" p={1} mt="30px">
+                <Button
+                    size="small"
+                    color="primary"
+                    variant="contained"
+                    style={{ alignSelf: 'center' }}
+                    onClick={handleNavigateBack}
+                >
+                    back to list
                     </Button>
-                    {coin
-                        ? <Box m={1} display="flex" justifyContent="center" className="Detail_Card">
-                        <Card className="Detail_Card" style={{ maxHeight: "800px", width: "550px", overflowY: "auto" , marginRight: '20px'}}>
+                {coin
+                    ? <Box m={1} display="flex" justifyContent="center" className="Detail_Card">
+                        <Card className="Detail_Card" style={{ maxHeight: "800px", width: "550px", overflowY: "auto", marginRight: '20px' }}>
                             <CardContent>
                                 <Box display="flex" alignItems="center" justifyContent="space-between">
                                     <Box fontWeight="bold">{coin.name}</Box>
@@ -114,10 +120,10 @@ const CoinDetail = () => {
                         <SkeletonLoaderDetails />
                         <SkeletonLoaderDetails />
                     </Box>
-                    }
-                    <CoinDetailSeeMore similarCoinsList={similarCoinsList} />
-                </Box>
-               
+                }
+                <CoinDetailSeeMore similarCoinsList={similarCoinsList} />
+            </Box>
+
             {isRedirecting ? <Redirect to='/coins' /> : null}
         </>
     )

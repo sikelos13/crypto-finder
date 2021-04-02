@@ -2,7 +2,7 @@ import { Component } from "react";
 import { fetchCoinsApi, FetchCoinsApiResponse } from "../api/fetchCoins";
 import Box from "@material-ui/core/Box";
 import toast from "react-hot-toast";
-import SkeletonLoader from "../components/SkeletonLoader";
+import SkeletonLoader from "../components/Loaders/SkeletonLoader";
 import Header from "../components/Header";
 import { Pagination } from "../api/types/Pagination";
 import { initState } from '../utils/initialState';

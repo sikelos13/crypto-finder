@@ -8,7 +8,6 @@ import { Toaster } from 'react-hot-toast';
 interface OwnProps {
     history: History;
 }
-
 class App extends React.Component<OwnProps,{}> {
 
     public render() {

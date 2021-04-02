@@ -3,7 +3,6 @@ import { Box } from '@material-ui/core';
 import { Pagination } from '../api/types/Pagination';
 import PaginationNavBar from './PaginationNavBar';
 import { Coin } from '../api/types/Coin';
-
 interface HeaderProps {
     pagination: Pagination;
     coinsList: Coin[];

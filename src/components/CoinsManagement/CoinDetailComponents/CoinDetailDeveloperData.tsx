@@ -10,29 +10,24 @@ interface CoinDetailDeveloperDataProps {
 }
 
 const CoinDetailDeveloperData: React.FC<CoinDetailDeveloperDataProps> = (({ coin }: CoinDetailDeveloperDataProps) => (
-    <>
-        {coin.developer_data
-            ? <Box display="flex" alignItems="center" pl="10px" flexDirection="column">
-                <Box component="h4" display="flex" alignItems="center">
-                    <GitHubIcon color="primary" /><Box fontWeight='bold' ml="5px">Github statistics:</Box>
-                </Box>
-                {Object.keys(developerDataOptions).map((name: string) => {
-                    const uniqueId = generateId();
+    <Box display="flex" alignItems="center" pl="10px" flexDirection="column">
+        <Box component="h4" display="flex" alignItems="center">
+            <GitHubIcon color="primary" /><Box fontWeight='bold' ml="5px">Github statistics:</Box>
+        </Box>
+        {Object.keys(developerDataOptions).map((name: string) => {
+            const uniqueId = generateId();
 
-                    return (
-                        <Box key={uniqueId} >
-                            <Box display="flex" p="5px">
-                                <Box component={'span'} fontWeight="bold" mr="5px">{developerDataOptions[name]}</Box>
-                                <Box component={'span'}>{coin.developer_data[name]}</Box>
-                            </Box>
-                        </Box>
-                    )
-                })
-                }
-            </Box>
-            : <Box component="p">No data available</Box>
+            return (
+                <Box key={uniqueId} >
+                    <Box display="flex" p="5px">
+                        <Box component={'span'} fontWeight="bold" mr="5px">{developerDataOptions[name]}</Box>
+                        <Box component={'span'}>{coin.developer_data[name]}</Box>
+                    </Box>
+                </Box>
+            )
+        })
         }
-    </>
+    </Box>
 ))
 
 

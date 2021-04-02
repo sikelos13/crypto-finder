@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Box } from '@material-ui/core';
 import { fetchMarketChart, FetchMarketChartApiResponse } from '../../../api/fetchMarketChart';
-import SkeletonLoaderDetails from "../../../components/SkeletonLoaderDetails";
+import SkeletonLoaderDetails from "../../Loaders/SkeletonLoaderDetails";
 import * as Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import Select from '@material-ui/core/Select';

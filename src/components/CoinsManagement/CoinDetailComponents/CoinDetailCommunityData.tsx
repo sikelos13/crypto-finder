@@ -10,32 +10,27 @@ interface CoinDetailCommunityDataProps {
 }
 
 const CoinDetailCommunityData: React.FC<CoinDetailCommunityDataProps> = (({ coin }: CoinDetailCommunityDataProps) => (
-    <>
-        {coin.community_data
-            ? <Box display="flex" alignItems="center" pl="10px" flexDirection="column">
-                <Box component="h4" display="flex" alignItems="center">
-                    <EqualizerIcon color="primary" /><Box fontWeight='bold' ml="5px">Community statistics:</Box>
-                </Box>
-                {Object.keys(communityDataOptions).map((name: string) => {
-                    const uniqueId = generateId();
+    <Box display="flex" alignItems="center" pl="10px" flexDirection="column">
+        <Box component="h4" display="flex" alignItems="center">
+            <EqualizerIcon color="primary" /><Box fontWeight='bold' ml="5px">Community statistics:</Box>
+        </Box>
+        {Object.keys(communityDataOptions).map((name: string) => {
+            const uniqueId = generateId();
 
-                    return (
-                        <Box key={uniqueId} >
-                            {coin.community_data[name]
-                                ? <Box key={uniqueId} display="flex" p="5px">
-                                    <Box component={'span'} fontWeight="bold" mr="5px">{communityDataOptions[name]}</Box>
-                                    <Box component={'span'}>{coin.community_data[name]}</Box>
-                                </Box>
-                                : null
-                            }
+            return (
+                <Box key={uniqueId} >
+                    {coin.community_data[name]
+                        ? <Box key={uniqueId} display="flex" p="5px">
+                            <Box component={'span'} fontWeight="bold" mr="5px">{communityDataOptions[name]}</Box>
+                            <Box component={'span'}>{coin.community_data[name]}</Box>
                         </Box>
-                    )
-                })
-                }
-            </Box>
-            : <Box component="p">No data available</Box>
+                        : null
+                    }
+                </Box>
+            )
+        })
         }
-    </>
+    </Box>
 ))
 
 

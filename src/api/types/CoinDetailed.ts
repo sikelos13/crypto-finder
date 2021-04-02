@@ -35,14 +35,14 @@ export interface CoinDetailed {
 }
 
 interface CommunityData {
-    [key: string]: number | null;
-    facebook_likes: number | null;
-    reddit_accounts_active_48h: number | null;
-    reddit_average_comments_48h: number | null;
-    reddit_average_posts_48h: number | null;
-    reddit_subscribers: number | null;
-    telegram_channel_user_count: number | null;
-    twitter_followers: number | null;
+    [key: string]: number | null | string;
+    facebook_likes: number | null | string;
+    reddit_accounts_active_48h: number | null | string;
+    reddit_average_comments_48h: number | null | string;
+    reddit_average_posts_48h: number | null | string;
+    reddit_subscribers: number | null | string;
+    telegram_channel_user_count: number | null | string;
+    twitter_followers: number | null | string;
 }
 
 interface DeveloperData {
