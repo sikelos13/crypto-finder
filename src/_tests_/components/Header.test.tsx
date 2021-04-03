@@ -26,7 +26,6 @@ describe('<Header />', () => {
     });
 
     it('Renders pagination component', () => {
-            
         expect(documentBody.getByText(/Page/i)).toBeInTheDocument();
       });
   });

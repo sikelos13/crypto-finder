@@ -10,7 +10,6 @@ describe("<CoinDetail />", () => {
   });
 
   test("Renders <SkeletonLoader /> and then <CoinsLIst /> component correctly",  () => {
-
     expect(documentBody.getByText(/Testcoin1/i)).toBeInTheDocument();
-});
+    });
 });

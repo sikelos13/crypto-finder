@@ -1,4 +1,5 @@
 
+type NormalizedData  = string | number | null;
 export interface CoinDetailedNormalized {
     name: string
     current_price: string;
@@ -21,33 +22,33 @@ interface CoinLinksNormalized {
 }
 
 interface DeveloperDataNormalized {
-    [key: string]: number | null;
-    closed_issues: number | null;
-    forks: number | null;
-    stars: number | null;
-    subscribers: number | null;
-    total_issues: number | null;
+    [key: string]: NormalizedData;
+    closed_issues: NormalizedData;
+    forks: NormalizedData;
+    stars: NormalizedData;
+    subscribers: NormalizedData;
+    total_issues: NormalizedData
 }
 
 interface CommunityDataNormalized {
-    [key: string]: number | null;
-    facebook_likes: number | null;
-    reddit_subscribers: number | null;
-    telegram_channel_user_count: number | null;
-    twitter_followers: number | null;
+    [key: string]: NormalizedData
+    facebook_likes: NormalizedData;
+    reddit_subscribers: NormalizedData;
+    telegram_channel_user_count: NormalizedData;
+    twitter_followers: NormalizedData;
 }
 
 interface MarketDataNormalized {
-    [key: string]: string | number;
-    highest_price_since_creation: string;
-    lowest_price_since_creation: string;
-    high_24h: string | number;
-    low_24h: string | number;
-    price_change_percentage_24h: string | number;
-    price_change_percentage_7d: string | number;
-    price_change_percentage_14d: string | number;
-    price_change_percentage_30d: string | number;
-    price_change_percentage_60d: string | number;
-    price_change_percentage_200d: string | number;
-    price_change_percentage_1y: string | number;
+    [key: string]: NormalizedData;
+    highest_price_since_creation: NormalizedData;
+    lowest_price_since_creation: NormalizedData;
+    high_24h: NormalizedData;
+    low_24h: NormalizedData;
+    price_change_percentage_24h: NormalizedData;
+    price_change_percentage_7d: NormalizedData;
+    price_change_percentage_14d: NormalizedData;
+    price_change_percentage_30d: NormalizedData;
+    price_change_percentage_60d: NormalizedData;
+    price_change_percentage_200d: NormalizedData;
+    price_change_percentage_1y: NormalizedData;
 }
