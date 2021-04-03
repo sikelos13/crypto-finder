@@ -36,7 +36,8 @@ const getLinks = (item: CoinDetailed) => {
         official_forum_url: item.links.official_forum_url[0] ? item.links.official_forum_url[0] : '',
         twitter_screen_name: item.links.twitter_screen_name ? item.links.twitter_screen_name : '',
         facebook_username: item.links.facebook_username ? item.links.facebook_username : '',
-        subreddit_url: item.links.subreddit_url ? item.links.subreddit_url : ''
+        subreddit_url: item.links.subreddit_url ? item.links.subreddit_url : '',
+        github_url: item.links.repos_url && item.links.repos_url.github.length > 0 ? item.links.repos_url.github[0]: ''
     }
 }
 

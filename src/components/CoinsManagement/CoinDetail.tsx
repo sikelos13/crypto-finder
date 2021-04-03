@@ -17,7 +17,7 @@ import { CoinDetailedNormalized } from '../../api/types/CoinDetailedNormalized';
 import { fetchCoinsApi, FetchCoinsApiResponse } from '../../api/fetchCoins';
 import { getSeeMoreList } from '../../utils/getSeeMoreList';
 import { CoinSimple } from '../../api/types/CoinSimple';
-import CoinDetailSeeMore from '../CoinsManagement/CoinDetailComponents/CoinDetailSeeMore';
+import CoinDetailSimilarCoins from './CoinDetailComponents/CoinDetailSimilarCoins';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import CoinDetailPriceChanges from '../CoinsManagement/CoinDetailComponents/CoinDetailPriceChanges';
@@ -181,7 +181,7 @@ const CoinDetail = () => {
                     </Box>
                 }
                 <Box>
-                    <CoinDetailSeeMore similarCoinsList={similarCoinsList} />
+                    <CoinDetailSimilarCoins similarCoinsList={similarCoinsList} />
                 </Box>
             </Box>
 

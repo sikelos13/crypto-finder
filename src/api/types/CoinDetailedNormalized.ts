@@ -19,6 +19,7 @@ interface CoinLinksNormalized {
     official_forum_url: string;
     twitter_screen_name: string;
     facebook_username: string;
+    github_url: string;
 }
 
 interface DeveloperDataNormalized {

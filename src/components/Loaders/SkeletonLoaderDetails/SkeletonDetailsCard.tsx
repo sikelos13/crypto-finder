@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 
 export const SkeletonDetailsCard = () => {
     return (
-        <Box mb={5} display="block">
+        <Box display="block">
             <Skeleton width="60%">
                 <Typography>.</Typography>
             </Skeleton>

@@ -1,5 +1,5 @@
 import { render, RenderResult } from '@testing-library/react'
-import CoinDetailSeeMore from '../../../components/CoinsManagement/CoinDetailComponents/CoinDetailSeeMore';
+import CoinDetailSeeMore from '../../../components/CoinsManagement/CoinDetailComponents/CoinDetailSimilarCoins';
 import { mockCoinsListSimple } from '../../mocks/mockCoinsListSimple';
 
 let documentBody: RenderResult;

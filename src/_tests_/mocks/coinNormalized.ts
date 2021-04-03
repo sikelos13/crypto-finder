@@ -7,7 +7,8 @@ export const mockCoinNormalized = {
         official_forum_url: '',
         twitter_screen_name: "normalizead_twitter",
         facebook_username: 'normal',
-        subreddit_url:""
+        subreddit_url:"",
+        github_url: ""
     },
     community_data:  {
         facebook_likes: 13456,
