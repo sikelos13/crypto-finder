@@ -1,6 +1,7 @@
 import { generateId } from '../utils/GenerateId'
-import { getSeeMoreList } from '../utils/getSeeMoreList';
+import { DateFormat } from '../utils/DateFormat';
 import { mockCoinsList } from './mocks/mockCoinsList'
+import { getSeeMoreList } from '../utils/getSeeMoreList';
 
 describe("Return random generated id", () => {
     test("it should return an id", () => {  
@@ -24,5 +25,13 @@ describe("Return random generated id", () => {
       ];
   
       expect(getSeeMoreList(mockCoinsList)).toEqual(output);
+    });
+  });
+
+  describe("Return a humanized date format", () => {
+    test("it return a normalized date on outputt", () => {  
+      const output = 'Feb 13, 2021';
+  
+      expect(DateFormat.normalize('2021-02-13T20:49:26.606Z')).toEqual(output);
     });
   });

@@ -2,7 +2,6 @@ import { render, RenderResult, configure } from '@testing-library/react'
 import CoinsView from '../../containers/CoinsView';
 import Header from '../../components/Header';
 import { mockCoinsList } from '../mocks/mockCoinsList';
-import CoinsList from '../../components/CoinsList';
 
 configure({testIdAttribute: 'id'})
 

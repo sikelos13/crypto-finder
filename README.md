@@ -33,6 +33,7 @@ npm run start
 * Details view with extended information of the coin
 * Line chart with select dropdown for different data sets
 * Zoom in line chart for better visibility on big data sets.
+* More icons suggestions added as footer in order for the user to not navigate back and forth to change coin.
 
 ### Testing build with
 
@@ -52,4 +53,7 @@ To run test with coverage run:
 ```
 npm test -- --coverage
 ```
+
+* **If coverage don't show on the terminal add --watchAll to the command line above**
+
 
