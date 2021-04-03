@@ -65,31 +65,33 @@ const PriceHighCharts: React.FC<PriceHighChartsProps> = (({ coin }: PriceHighCha
     return (
         <>
             {chartConfig
-                ? <Card style={{ maxHeight: "560px", width: "650px", overflowY: "auto" }}>
+                ? <Box component={Card} height="560px" width="650px" style={{ overflowY: "auto" }}>
                     <CardContent>
-                        <Box display="flex" flexDirection="column" alignItems="flex-end">
-                            <FormLabel>Duration of the chart</FormLabel>
-                            <Select
-                                native
-                                style={{ marginTop: '5px' }}
-                                onChange={handleSelect}
-                                defaultValue={initialDays}
-                                disabled={loading}
-                                name="days"
-                            >
-                                <option value='1'>1 day</option>
-                                <option value='14'>14 days</option>
-                                <option value='30'>1 month</option>
-                                <option value='90'>3 months</option>
-                                <option value='365'>1 year</option>
-                                <option value='max'>Since the creation</option>
-                            </Select>
+                        <Box display="flex" justifyContent="flex-end">
+                            <Box display="flex" flexDirection="column">
+                                <FormLabel>Duration of the chart</FormLabel>
+                                <Select
+                                    native
+                                    style={{ marginTop: '5px' }}
+                                    onChange={handleSelect}
+                                    defaultValue={initialDays}
+                                    disabled={loading}
+                                    name="days"
+                                >
+                                    <option value='1'>1 day</option>
+                                    <option value='14'>14 days</option>
+                                    <option value='30'>1 month</option>
+                                    <option value='90'>3 months</option>
+                                    <option value='365'>1 year</option>
+                                    <option value='max'>Since the creation</option>
+                                </Select>
+                            </Box>
                         </Box>
                         <Box m={1} display='flex' justifyContent="center">
                             <HighchartsReact highcharts={Highcharts} options={chartConfig} />
                         </Box>
                     </CardContent>
-                </Card>
+                </Box>
                 : <SkeletonLoaderDetails />
             }
         </>

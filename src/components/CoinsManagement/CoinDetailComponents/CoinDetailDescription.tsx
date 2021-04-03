@@ -9,7 +9,14 @@ interface CoinDetailDescriptionProps {
 const CoinDetailDescription: React.FC<CoinDetailDescriptionProps> = (({ coin }: CoinDetailDescriptionProps) => (
     <Box display="flex" flexDirection="column">
         <Box fontWeight='bold'>Description</Box>
-        <Box component="p" textAlign="justify" maxHeight="280px" style={{ overflowY: 'auto', padding: '5px', maxWidth: '500px'}} dangerouslySetInnerHTML={{ __html: coin.description }}></Box>
+        <Box 
+            component="p" 
+            textAlign="justify" 
+            maxHeight="320px" 
+            maxWidth="500px" p="5px" 
+            style={{ overflowY: 'auto'}} 
+            dangerouslySetInnerHTML={{ __html: coin.description }}>
+        </Box>
     </Box>
 ))
 

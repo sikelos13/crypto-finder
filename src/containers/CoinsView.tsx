@@ -38,8 +38,8 @@ class CoinsView extends Component<{}, CoinsViewState> {
         };
 
         fetchCoinsApi(params).then((response: FetchCoinsApiResponse) => {
-            if (response.success) {
 
+            if (response.success) {
                 this.setState({
                     coinsList: response.data,
                     loading: false,
@@ -86,6 +86,7 @@ class CoinsView extends Component<{}, CoinsViewState> {
                 <Header
                     pagination={pagination}
                     coinsList={coinsList}
+                    loading={loading}
                     handlePaginate={this.handlePaginate}
                 />
                 <Box display="flex" justifyContent="center" flexDirection="row">
@@ -106,6 +107,7 @@ class CoinsView extends Component<{}, CoinsViewState> {
                 <Box display="flex" justifyContent="center">
                     <PaginationNavBar
                         coinsList={coinsList}
+                        loading={loading}
                         pagination={pagination}
                         paginate={this.handlePaginate}
                     />

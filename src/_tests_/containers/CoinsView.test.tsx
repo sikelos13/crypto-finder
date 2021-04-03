@@ -2,6 +2,7 @@ import { render, RenderResult, configure } from '@testing-library/react'
 import CoinsView from '../../containers/CoinsView';
 import Header from '../../components/Header';
 import { mockCoinsList } from '../mocks/mockCoinsList';
+import CoinsList from '../../components/CoinsList';
 
 configure({testIdAttribute: 'id'})
 
@@ -17,13 +18,14 @@ describe("<CoinsView />", () => {
     documentBody = render(<CoinsView />);
   });
 
-  test("Renders <SkeletonLoader /> and then <CoinsList /> component correctly",  async () => {
+  test("Renders <SkeletonLoader /> and then <Header /> component correctly",  async () => {
 
    expect(await documentBody.findByTestId('skeleton-loader')).toBeVisible();
         const dom = render(<Header  
             pagination={pagination}
             coinsList={mockCoinsList}
             handlePaginate={jest.fn()}
+            loading={false}
             />);
 
    expect(await dom.queryAllByText(/Coins Finder/i)).toHaveLength(2);

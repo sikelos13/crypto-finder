@@ -6,7 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 import LanguageIcon from '@material-ui/icons/Language';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import ForumIcon from '@material-ui/icons/Forum';
-
+import RedditIcon from '@material-ui/icons/Reddit';
 interface CoinDetailLinksProps {
     coin: CoinDetailedNormalized;
 }
@@ -23,6 +23,11 @@ const CoinDetailLinks: React.FC<CoinDetailLinksProps> = (({ coin }: CoinDetailLi
                 {coin.links.official_forum_url &&
                     <IconButton href={coin.links.official_forum_url} target="_blank" style={{ padding: '0', marginRight: '10px'}}>
                         <ForumIcon color="primary" />
+                    </IconButton>
+                }
+                    {coin.links.official_forum_url &&
+                    <IconButton href={coin.links.subreddit_url} target="_blank" style={{ padding: '0', marginRight: '10px'}}>
+                        <RedditIcon color="primary" />
                     </IconButton>
                 }
                 {coin.links.twitter_screen_name &&

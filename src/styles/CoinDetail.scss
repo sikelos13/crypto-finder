@@ -1,10 +1,20 @@
-@media only screen and (max-width: 1150px) {
-    .Detail_Card {
-      flex-direction: column !important;
-      align-items: center !important;
-    }
-
-    .Detail_Card {
-        margin: 10px 0 !important;
-      }
+@media only screen and (max-width: 1390px) {
+  .Detail_Card {
+    flex-direction: column !important;
+    align-items: center !important;
   }
+
+  .Data_DetailsCard {
+    margin: 10px 0 !important;
+  }
+
+  .Detail_Card {
+    margin: 10px 0 !important;
+  }
+}
+
+@media only screen and (max-width: 1270px) {
+  .Skeleton_FirstColumn {
+    flex-direction: column !important;
+  }
+}

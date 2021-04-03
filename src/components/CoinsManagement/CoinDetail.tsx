@@ -23,21 +23,17 @@ import Tab from '@material-ui/core/Tab';
 import CoinDetailPriceChanges from '../CoinsManagement/CoinDetailComponents/CoinDetailPriceChanges';
 import CoinDetailHighLowPrice from '../CoinsManagement/CoinDetailComponents/CoinDetailHighLowPrice';
 import { TabPanel } from '../Tabs/TabPanel';
-import { makeStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme: Theme) => ({
-    root: {
-      flexGrow: 1,
-      backgroundColor: theme.palette.background.paper,
-      display: 'flex',
-      textAlign: 'left',
-      height: 224,
-    },
-    
+
+const useStyles = makeStyles((theme) => ({
     tabs: {
-      borderRight: `1px solid ${theme.palette.primary}`,
-    },
-  }));
+        "& .MuiTab-wrapper": {
+            textAlign: "left",
+            alignItems: "unset",
+        }
+    }
+}));
 
 function a11yProps(index: any) {
     return {
@@ -124,22 +120,29 @@ const CoinDetail = () => {
                 </Box>
                 {coin
                     ? <Box m={1} display="flex" justifyContent="center" className="Detail_Card">
-                    
-                        <Box component={Card} className="Detail_Card" display="flex"  style={{ maxHeight: "560px", width: "650px", overflowY: "auto", marginRight: '20px' }}>
-                        <Tabs
-                            orientation='vertical'
-                            variant="scrollable"
-                            value={value}
-                            onChange={handleChange}
-                            className={classes.tabs}
-                        >
-                            <Tab label="General info" {...a11yProps(0)} />
-                            <Tab label="Data details" {...a11yProps(1)} />
-                            <Tab label="Coin price details" {...a11yProps(2)} />
-                        </Tabs>
+                        <Box 
+                            component={Card} 
+                            display="flex" 
+                            height="560px" 
+                            width="650px"  
+                            mr="20px"
+                            className="Data_DetailsCard"
+                            style={{ overflowY: "auto"}}>
+                            <Tabs
+                                orientation='vertical'
+                                variant="scrollable"
+                                value={value}
+                                onChange={handleChange}
+                                className={classes.tabs}
+                                indicatorColor='primary'
+                            >
+                                <Tab label="coin info" {...a11yProps(0)} />
+                                <Tab label="data details" {...a11yProps(1)} />
+                                <Tab label="price details" {...a11yProps(2)} />
+                            </Tabs>
                             <Box component={CardContent}>
                                 <Box display="flex" alignItems="end" justifyContent="space-between">
-                                    <Box fontWeight="bold">{coin.name}</Box>
+                                    <Box fontWeight="bold" fontSize="15px">{coin.name}</Box>
                                     <CoinDetailLinks coin={coin} />
                                 </Box>
                                 <Box component={'h4'}>Current price: {coin.current_price}</Box>
@@ -152,11 +155,11 @@ const CoinDetail = () => {
                                         <CoinDetailCommunityData coin={coin} />
                                     </Box>
                                     <Box display="flex" justifyContent="flex-start">
-                                        <Box p="10px">
+                                        <Box p="10px 5px">
                                             <Box component={'span'} fontWeight="bold" mr="5px">Up votes (%):</Box>
                                             <Box component={'span'}>{coin.sentiment_votes_up_percentage}</Box>
                                         </Box>
-                                        <Box p="10px">
+                                        <Box p="10px 5px">
                                             <Box component={'span'} fontWeight="bold" mr="5px">Down votes (%):</Box>
                                             <Box component={'span'}>{coin.sentiment_votes_down_percentage}</Box>
                                         </Box>
@@ -172,12 +175,12 @@ const CoinDetail = () => {
                         </Box>
                         <PriceHighCharts coin={coin} />
                     </Box>
-                    : <Box display="flex" p={1} justifyContent="center">
+                    : <Box display="flex" p={1} className="Skeleton_FirstColumn">
                         <SkeletonLoaderDetails />
                         <SkeletonLoaderDetails />
                     </Box>
                 }
-                 <Box>
+                <Box>
                     <CoinDetailSeeMore similarCoinsList={similarCoinsList} />
                 </Box>
             </Box>

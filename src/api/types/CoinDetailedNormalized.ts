@@ -14,6 +14,7 @@ export interface CoinDetailedNormalized {
 
 interface CoinLinksNormalized {
     homepage: string;
+    subreddit_url: string;
     official_forum_url: string;
     twitter_screen_name: string;
     facebook_username: string;
