@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 import CoinsView from './containers/CoinsView';
 import { Container } from '@material-ui/core';
 import CoinDetail from './components/CoinsManagement/CoinDetail';
-
 export default class Routes extends Component<{}, {}> {
     render() {
         return (

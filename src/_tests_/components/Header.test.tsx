@@ -1,7 +1,6 @@
 import Header from '../../components/Header';
 import { render, RenderResult } from '@testing-library/react';
 import { mockCoinsList } from '../mocks/mockCoinsList';
-import PaginationNavBar from '../../components/PaginationNavBar';
 
 let documentBody: RenderResult;
 

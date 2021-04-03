@@ -1,4 +1,4 @@
-import { render, RenderResult,waitFor, configure } from '@testing-library/react'
+import { render, RenderResult, configure } from '@testing-library/react'
 import PriceHighCharts from '../../../components/CoinsManagement/CoinDetailComponents/PriceHighCharts';
 import { mockCoinNormalized } from '../../mocks/coinNormalized';
 

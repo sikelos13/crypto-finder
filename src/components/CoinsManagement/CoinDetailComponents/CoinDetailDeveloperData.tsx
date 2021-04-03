@@ -10,7 +10,7 @@ interface CoinDetailDeveloperDataProps {
 }
 
 const CoinDetailDeveloperData: React.FC<CoinDetailDeveloperDataProps> = (({ coin }: CoinDetailDeveloperDataProps) => (
-    <Box display="flex" alignItems="flex-start" flexDirection="column">
+    <Box display="flex" flexDirection="column">
         <Box component="h4" display="flex" alignItems="center">
             <GitHubIcon color="primary" /><Box fontWeight='bold' ml="5px">Github statistics:</Box>
         </Box>

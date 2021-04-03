@@ -19,7 +19,6 @@ interface PriceHighChartsProps {
 const PriceHighCharts: React.FC<PriceHighChartsProps> = (({ coin }: PriceHighChartsProps) => {
     const [chartConfig, setChartConfig] = useState<any>();
     const [loading, setLoadingData] = useState(false);
-
     const initialDays = '1';
     const coinId = coin.id;
 
@@ -87,7 +86,7 @@ const PriceHighCharts: React.FC<PriceHighChartsProps> = (({ coin }: PriceHighCha
                                 </Select>
                             </Box>
                         </Box>
-                        <Box m={1} display='flex' justifyContent="center">
+                        <Box>
                             <HighchartsReact highcharts={Highcharts} options={chartConfig} />
                         </Box>
                     </CardContent>

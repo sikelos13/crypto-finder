@@ -10,7 +10,7 @@ interface CoinDetailCommunityDataProps {
 }
 
 const CoinDetailCommunityData: React.FC<CoinDetailCommunityDataProps> = (({ coin }: CoinDetailCommunityDataProps) => (
-    <Box display="flex" alignItems="flex-start" flexDirection="column">
+    <Box display="flex" flexDirection="column">
         <Box component="h4" display="flex" alignItems="center">
             <EqualizerIcon color="primary" /><Box fontWeight='bold' ml="5px">Community statistics:</Box>
         </Box>

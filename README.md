@@ -16,7 +16,7 @@ Netdata assignment using CRA and Coingecko API.
 ```
 git clone netdata-assignment
 cd netdata-assignment
-Create on the root folder a .env file and put inside our env var for API Endpoint and our API KEY 
+Create on the root folder a .env file and put inside our env var for API Endpoint.
 ```
 
 * **The api endpoint. (REACT_APP_API_ENDPOINT="https://api.coingecko.com/api/v3")**
