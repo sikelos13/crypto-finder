@@ -9,10 +9,14 @@ interface CoinsListProps {
 
 const CoinsList: React.FC<CoinsListProps> = memo(({ coinsList }: CoinsListProps) => (
     <>
-        {coinsList && coinsList.length > 0
+        {coinsList.length > 0
             ? coinsList.map((coin: Coin) => {
                 return (
-                    <Box key={coin.id} width="300px" height="420px" p={1}>
+                    <Box
+                        key={coin.id}
+                        width="300px"
+                        height="420px" p={1}
+                    >
                         <CoinOverview coin={coin} />
                     </Box>
                 )

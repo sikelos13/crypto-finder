@@ -21,8 +21,8 @@ const CoinOverview: React.FC<CoinOverviewProps> = memo(({ coin }: CoinOverviewPr
     return (
         <>
             {coin &&
-                <Card style={{ height: "400px", width: "300px", overflowY: "auto" }}>
-                    <CardContent style={{ height: '340px' }}>
+                <Box component={Card} height="400px" width="300px" style={{ overflowY: "auto" }}>
+                    <Box component={CardContent} height="340px">
                         <Box fontWeight="bold">{coin.name}</Box>
                         <Box display="flex" justifyContent="center" p="5px" m={1}>
                             {coin.image
@@ -45,16 +45,16 @@ const CoinOverview: React.FC<CoinOverviewProps> = memo(({ coin }: CoinOverviewPr
                         <Box component={'p'}>
                             <Box component={'span'} fontWeight="bold">The price change in percentage of the last 24 hours:</Box> <Box component={'span'}>{coin.price_change_percentage_24h}%</Box>
                         </Box>
-                    </CardContent>
+                    </Box>
                     <CardActions style={{ display: "flex", justifyContent: "center" }}>
                         <Button
                             size="small"
                             color="primary"
                             onClick={() => handleCoinDetails(coin.id)}>
                             Details
-                            </Button>
+                        </Button>
                     </CardActions>
-                </Card>
+                </Box>
             }
         </>
     )

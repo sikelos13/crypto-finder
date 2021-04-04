@@ -26,8 +26,13 @@ import { TabPanel } from '../Tabs/TabPanel';
 import { makeStyles } from '@material-ui/core/styles';
 
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     tabs: {
+        "& .MuiTabs-scroller": {
+            borderRight: "1px #8f8d8d38 solid",
+            boxShadow: "-1px -5px 8px 0px #b6b6b6",
+            backgroundColor: "rgb(75 124 214 / 4%)",
+        },
         "& .MuiTab-wrapper": {
             textAlign: "left",
             alignItems: "unset",
@@ -47,9 +52,8 @@ const CoinDetail = () => {
     const [isRedirecting, setRedirect] = useState(false);
     const [similarCoinsList, setSimilarCoins] = useState<CoinSimple[]>([]);
     const [value, setValue] = useState(0);
-    const classes = useStyles();
-
     const initialLoad = useRef(true);
+    const classes = useStyles();
     const id = history.location.state as string;
 
     const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
@@ -104,6 +108,7 @@ const CoinDetail = () => {
     const handleNavigateBack = () => {
         setRedirect(true);
     }
+    
     return (
         <>
             <Box display="flex" flexDirection="column" p={1} mt="30px">
@@ -120,14 +125,14 @@ const CoinDetail = () => {
                 </Box>
                 {coin
                     ? <Box m={1} display="flex" justifyContent="center" className="Detail_Card">
-                        <Box 
-                            component={Card} 
-                            display="flex" 
-                            height="560px" 
-                            width="650px"  
+                        <Box
+                            component={Card}
+                            display="flex"
+                            height="560px"
+                            width="650px"
                             mr="20px"
                             className="Data_DetailsCard"
-                            style={{ overflowY: "auto"}}>
+                            style={{ overflowY: "auto" }}>
                             <Tabs
                                 orientation='vertical'
                                 variant="scrollable"

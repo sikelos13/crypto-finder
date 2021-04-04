@@ -2,7 +2,6 @@ import React from 'react';
 import { Box } from '@material-ui/core';
 import { CoinSimple } from '../../../api/types/CoinSimple';
 import history from "../../../history";
-import SkeletonLoaderSimilarCoins from '../../Loaders/SkeletonLoaderSimilarCoins';
 
 interface CoinDetailSimilarCoinsProps {
     similarCoinsList: CoinSimple[];
@@ -34,7 +33,7 @@ const CoinDetailSimilarCoins: React.FC<CoinDetailSimilarCoinsProps> = (({ simila
                         }
                     </Box>
                 </>
-                : <SkeletonLoaderSimilarCoins />
+                : null
             }
         </Box>
     )

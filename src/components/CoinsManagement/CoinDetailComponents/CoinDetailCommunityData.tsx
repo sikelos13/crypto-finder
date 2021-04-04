@@ -4,7 +4,6 @@ import { CoinDetailedNormalized } from '../../../api/types/CoinDetailedNormalize
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import { communityDataOptions } from '../../../constants/CommunityDataOptions';
 import { generateId } from '../../../utils/GenerateId';
-
 interface CoinDetailCommunityDataProps {
     coin: CoinDetailedNormalized;
 }
@@ -19,17 +18,13 @@ const CoinDetailCommunityData: React.FC<CoinDetailCommunityDataProps> = (({ coin
 
             return (
                 <Box key={uniqueId} >
-                    {coin.community_data[name]
-                        ? <Box key={uniqueId} display="flex" p="5px">
-                            <Box component={'span'} fontWeight="bold" mr="5px">{communityDataOptions[name]}</Box>
-                            <Box component={'span'}>{coin.community_data[name]}</Box>
-                        </Box>
-                        : null
-                    }
+                    <Box key={uniqueId} display="flex" p="5px">
+                        <Box component={'span'} fontWeight="bold" mr="5px">{communityDataOptions[name]}</Box>
+                        <Box component={'span'}>{coin.community_data[name]}</Box>
+                    </Box>
                 </Box>
             )
-        })
-        }
+        })}
     </Box>
 ))
 
