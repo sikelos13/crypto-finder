@@ -10,6 +10,7 @@ NetData assignment using CRA and Coingecko API.
 * [Typescript](https://www.typescriptlang.org/docs/handbook/react.html)
 * [Axios](https://github.com/axios/axios)
 * [Date-fns](https://date-fns.org/)
+* [Highcharts-react](https://github.com/highcharts/highcharts-react)
 
 ### How to run 
 
