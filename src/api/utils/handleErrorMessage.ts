@@ -12,5 +12,5 @@ export const handleErrorMessage = (responseApi: any) => {
         return responseApi.response.data.non_field_errors[0] 
     }
 
-    return "Something went wrong on the process, please try again.";
+    return "Something went wrong on while fetching data, please refresh the page.";
 }
