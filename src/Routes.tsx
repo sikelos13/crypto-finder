@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import CoinsView from './containers/CoinsView';
 import { Container } from '@material-ui/core';
 import CoinDetail from './components/CoinsManagement/CoinDetail';
+import Notfound from './components/NotFound';
 export default class Routes extends Component<{}, {}> {
     render() {
         return (
@@ -10,6 +11,7 @@ export default class Routes extends Component<{}, {}> {
                 <Switch>
                     <Route exact path={["/coins", "/"]} component={CoinsView} />
                     <Route exact path="/coin/:id/details" component={CoinDetail} />
+                    <Route component={Notfound} />
                 </Switch>
             </Container>
         );
