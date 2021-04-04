@@ -27,7 +27,7 @@ const CoinDetailLinks: React.FC<CoinDetailLinksProps> = (({ coin }: CoinDetailLi
                         <ForumIcon color="primary" />
                     </IconButton>
                 }
-                {coin.links.official_forum_url &&
+                {coin.links.subreddit_url &&
                     <IconButton href={coin.links.subreddit_url} target="_blank" style={{ padding: '0', marginRight: '10px'}}>
                         <RedditIcon color="primary" />
                     </IconButton>
