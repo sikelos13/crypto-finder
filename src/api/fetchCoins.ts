@@ -18,6 +18,8 @@ export interface FetchCoinsApiParams {
  *
  * Endpoints:
  * - GET /coins/markets?vs_currency=usd
+ *  @param {string} perPage
+ *  @param {string} page
  *
  * @returns Promise<FetchCoinsApiResponse>
  */

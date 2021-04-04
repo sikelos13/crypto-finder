@@ -61,8 +61,8 @@ class CoinsView extends Component<{}, CoinsViewState> {
 
     handlePaginate = (pageNumber: number) => {
         const { pagination } = this.state;
-
-        localStorage.setItem('currentPage', JSON.stringify(pageNumber));
+        // set current page to local storage in order for user to stay at same page when he navigates back from the details view.
+        localStorage.setItem('currentPage', JSON.stringify(pageNumber)); 
         this.setState(
             {
                 pagination: {

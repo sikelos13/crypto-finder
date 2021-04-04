@@ -1,6 +1,6 @@
-## Netdata-assignment
+## NetData-assignment
 
-Netdata assignment using CRA and Coingecko API.
+NetData assignment using CRA and Coingecko API.
 ## Build With
 
 * [React](https://reactjs.org/)

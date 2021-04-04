@@ -9,12 +9,14 @@ export interface FetchMarketChartApiResponse {
 }
 
 /**
- *  Get coin details
+ *  Get coin price chart
  *
  * Endpoints:
- * - GET /coins/{id}
- *
- * @returns Promise<FetchMoviesApiResponse>
+ * - GET /coins/{id}/market_chart?vs_currency=usd&days=${params.days}
+ *  @param {string} days
+ *  @param {string} id
+
+ * @returns Promise<FetchMarketChartApiResponse>
  */
 
  export interface FetchMarketChartApiParams {

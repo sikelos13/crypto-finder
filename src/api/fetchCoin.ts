@@ -14,8 +14,9 @@ export interface FetchCoinApiResponse {
  *
  * Endpoints:
  * - GET /coins/{id}
- *
- * @returns Promise<FetchMoviesApiResponse>
+ *  @param {string} id
+ * 
+ * @returns Promise<FetchCoinApiResponse>
  */
 
 export const fetchCoinApi = (id: string): Promise<FetchCoinApiResponse> => (
