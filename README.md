@@ -1,4 +1,4 @@
-## NetData-assignment
+## Crypt-finder
 
 NetData assignment using CRA and Coingecko API.
 ## Build With
@@ -15,8 +15,8 @@ NetData assignment using CRA and Coingecko API.
 ### How to run 
 
 ```
-git clone netdata-assignment
-cd netdata-assignment
+git clone crypt-finder
+cd crypt-finder
 Create on the root folder a .env file and put inside our env var for API Endpoint.
 ```
 
