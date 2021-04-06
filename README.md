@@ -1,6 +1,6 @@
-## Crypt-finder
+## Crypto-finder
 
-NetData assignment using CRA and Coingecko API.
+Cryptocurrency finder and stats using CRA and Coingecko API.
 ## Build With
 
 * [React](https://reactjs.org/)
@@ -15,8 +15,8 @@ NetData assignment using CRA and Coingecko API.
 ### How to run 
 
 ```
-git clone crypt-finder
-cd crypt-finder
+git clone crypto-finder
+cd crypto-finder
 Create on the root folder a .env file and put inside our env var for API Endpoint.
 ```
 
