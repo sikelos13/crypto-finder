@@ -29,6 +29,22 @@ npm install
 npm run start
 ```
 
+### Docker build and run
+
+To run the current project install the prerequisites inside project's directory.
+I have used multi-stage build in Docker, in order to optimize the size of the built image. 
+As you will see in the Dockerfile, an initial node-based phase is utilized only for building the static assets, which are then copied over and served from a stripped-down nginx image. 
+In order to run the project please run:
+
+```
+cd crypto-finder
+
+docker build . -t crypto-finder
+docker run -p 80:80 crypto-finder
+```
+
+ *Note for docker:* Open **localhost** (without a port).
+
 ### Features implemented
 * Paginated list of coins and their overviews
 * Details view with extended information of the coin

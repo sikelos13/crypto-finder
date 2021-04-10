@@ -1,6 +1,6 @@
 {
-  "short_name": "Netdata assignment",
-  "name": "Netdata assignment",
+  "short_name": "Crypto finder",
+  "name": "Crypto finder",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
