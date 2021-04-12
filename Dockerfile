@@ -1,10 +1,10 @@
 FROM node:14.16.0-alpine as build
 WORKDIR /app
+ENV PORT 80
 COPY package.json /app/package.json
 RUN npm install --silent
-RUN npm install react-scripts@4.0.3 -g --silent
 COPY . /app
-RUN npm run build
+RUN npm run start
 
 # production environment
 FROM nginx:1.17.8-alpine
