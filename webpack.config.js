@@ -114,7 +114,7 @@ module.exports = {
     output,
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.scss', '.css', '.html', '.svgi'],
-        modules: [path.resolve(__dirname, ''), 'node_modules'],
+        modules: [path.resolve(__dirname, 'node_modules')],
         fallback: {
             //"path": require.resolve("path-browserify"),
             //"vm": require.resolve("vm-browserify"),
