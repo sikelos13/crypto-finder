@@ -5,6 +5,6 @@ services:
       build:
         context: .
         dockerfile: Dockerfile
-    container_name: crypto_web
+      container_name: crypto-webpack
       ports: 
         - 8080:80

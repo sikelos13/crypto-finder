@@ -13,33 +13,17 @@ module.exports = merge(commonConfig, {
         hot: true,
         hotOnly: true,
         liveReload: false,
-        /*https: {
-            key: fs.readFileSync('./certs/server.key'),
-            cert: fs.readFileSync('./certs/server.crt'),
-            cacert: fs.readFileSync('./certs/ca.crt')
-        },*/
         compress: true,
         disableHostCheck: true,
         overlay: {
             warnings: false,
             errors: true
         },
-        port: 443,
+        watchOptions: {
+            poll: true 
+          },
+        port: 80,
         host: '0.0.0.0',
         historyApiFallback: true,
-        /*
-        setup(app) {
-            app.post('*', (req, res) => {
-                res.redirect(req.originalUrl);
-            });
-        },
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-            "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
-        },*/
-        //public: 'lala.com'
-    },
-    plugins: [
-    ]
+    }
 });

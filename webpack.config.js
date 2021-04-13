@@ -53,29 +53,7 @@ const rules = [
     {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader']
-    },
-    // {
-    //     test: /\.svgi$/,
-    //     use: [{
-    //         loader: '@svgr/webpack',
-    //         options: {
-    //             dimensions: false,
-    //             svgoConfig: {
-    //                 plugins: {
-    //                     removeViewBox: false
-    //                 }
-    //             }
-    //         }
-    //     }]
-    // // },
-    // {
-    //     test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico|xml)$/,
-    //     exclude: [/node_modules/, require.resolve('./public/index.html')],
-    //     loader: 'file-loader',
-    //     options: {
-    //         outputPath: 'assets',
-    //     }
-    // }
+    }
 ];
 
 const output = {
@@ -115,13 +93,6 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.scss', '.css', '.html', '.svgi'],
         modules: [path.resolve(__dirname, 'node_modules')],
-        fallback: {
-            //"path": require.resolve("path-browserify"),
-            //"vm": require.resolve("vm-browserify"),
-            //"https": require.resolve("https-browserify"), // needed by json-schema-ref-parser
-            //"http": require.resolve("http-browserify"), // needed by json-schema-ref-parser
-            // "stream": require.resolve("stream-browserify"),
-        },
         alias: {
             buffer: 'buffer',
             util: 'util',
@@ -169,22 +140,10 @@ module.exports = {
         }),
         new CopyWebpackPlugin({
             patterns: [
-            //     {
-            //     from: '../public/assets',
-            //     to: 'assets',
-            // },
-                // {
-                //     from: '../public/favicon.ico',
-                //     to: 'public',
-                // },
                 {
                     from: path.resolve(__dirname, 'public/manifest.json'),
                     to: 'public',
                 }]
-        }),
-        // new webpack.ProvidePlugin({
-        //     process: 'process/browser.js',
-        //     Buffer: ['buffer', 'Buffer'],
-        // })
+        })
     ]
 };
