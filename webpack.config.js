@@ -7,9 +7,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const GitRevisionPlugin = require('git-revision-webpack-plugin');
 
-// const gitRevisionPlugin = new GitRevisionPlugin({
-//     versionCommand: 'describe --always --tags'
-// });
+const gitRevisionPlugin = new GitRevisionPlugin({
+    versionCommand: 'describe --always --tags'
+});
 
 const build = (() => {
     const timestamp = new Date().getTime();
@@ -18,8 +18,8 @@ const build = (() => {
         version: package.version,
         timestamp: timestamp,
         author: package.author,
-        //git_version: gitRevisionPlugin.version(),
-        //git_hash: gitRevisionPlugin.commithash()
+        git_version: gitRevisionPlugin.version(),
+        git_hash: gitRevisionPlugin.commithash()
     };
 })();
 
@@ -32,7 +32,7 @@ const envKeys = fileEnv && Object.keys(fileEnv).reduce((prev, next) => {
 
 const entry = {
     app: [
-        './index.tsx'
+        path.resolve(__dirname, 'src/index.tsx')
     ]
 };
 
@@ -51,34 +51,31 @@ const rules = [
         use: ['style-loader', 'css-loader']
     },
     {
-        test: /\.less$/,
-        use: ['style-loader', 'css-loader', 'less-loader']
-    },
-    {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+        use: ['style-loader', 'css-loader', 'sass-loader']
     },
-    {
-        test: /\.svgi$/,
-        use: [{
-            loader: '@svgr/webpack',
-            options: {
-                dimensions: false,
-                svgoConfig: {
-                    plugins: {
-                        removeViewBox: false
-                    }
-                }
-            }
-        }]
-    },
-    {
-        test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico|xml)$/,
-        loader: 'file-loader',
-        options: {
-            outputPath: 'assets',
-        }
-    }
+    // {
+    //     test: /\.svgi$/,
+    //     use: [{
+    //         loader: '@svgr/webpack',
+    //         options: {
+    //             dimensions: false,
+    //             svgoConfig: {
+    //                 plugins: {
+    //                     removeViewBox: false
+    //                 }
+    //             }
+    //         }
+    //     }]
+    // // },
+    // {
+    //     test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico|xml)$/,
+    //     exclude: [/node_modules/, require.resolve('./public/index.html')],
+    //     loader: 'file-loader',
+    //     options: {
+    //         outputPath: 'assets',
+    //     }
+    // }
 ];
 
 const output = {
@@ -109,27 +106,28 @@ const WEBPACK_PLUGINS = [
 ];
 
 module.exports = {
-    context: path.resolve('./src'),
+    context: path.resolve(''),
+    stats: {
+        children: true
+    },    
     entry,
     output,
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.scss', '.css', '.html', '.svgi'],
-        modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+        modules: [path.resolve(__dirname, ''), 'node_modules'],
         fallback: {
             //"path": require.resolve("path-browserify"),
             //"vm": require.resolve("vm-browserify"),
             //"https": require.resolve("https-browserify"), // needed by json-schema-ref-parser
             //"http": require.resolve("http-browserify"), // needed by json-schema-ref-parser
             // "stream": require.resolve("stream-browserify"),
-            // "crypto": require.resolve("crypto-browserify"),
         },
         alias: {
             buffer: 'buffer',
             util: 'util',
-            crypto: 'crypto-browserify',
             process: 'process/browser.js',
             'react-dom': '@hot-loader/react-dom',
-            '@images': path.resolve(__dirname, 'public/assets/images/')
+            // '@images': path.resolve(__dirname, 'public/assets/images/')
         }
     },
     module: {
@@ -166,26 +164,27 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'crypto-finder',
             filename: 'index.html',
-            template: '../public/index.html',
-            chunks: ['app', 'vendor', 'polyfills']
+            template:  'public/index.html',
+            chunks: ['app', 'vendor']
         }),
         new CopyWebpackPlugin({
-            patterns: [{
-                from: '../public/assets',
-                to: 'assets',
-            },
+            patterns: [
+            //     {
+            //     from: '../public/assets',
+            //     to: 'assets',
+            // },
+                // {
+                //     from: '../public/favicon.ico',
+                //     to: 'public',
+                // },
                 {
-                    from: '../public/favicon.ico',
-                    to: 'public',
-                },
-                {
-                    from: '../public/manifest.json',
+                    from: path.resolve(__dirname, 'public/manifest.json'),
                     to: 'public',
                 }]
         }),
-        new webpack.ProvidePlugin({
-            process: 'process/browser.js',
-            Buffer: ['buffer', 'Buffer'],
-        })
+        // new webpack.ProvidePlugin({
+        //     process: 'process/browser.js',
+        //     Buffer: ['buffer', 'Buffer'],
+        // })
     ]
 };
