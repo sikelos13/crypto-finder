@@ -1,16 +1,16 @@
 ## Crypto-finder
 
-Cryptocurrency finder and stats using CRA and Coingecko API.
+Cryptocurrency finder and stats using Webpack, React, TypeScript and Coingecko API.
 ## Build With
 
 * [React](https://reactjs.org/)
 * [Material UI](https://material-ui.com/)
-* [Create-react-app with Typescript template](https://create-react-app.dev/docs/adding-typescript/)
 * [React hot toast](https://github.com/timolins/react-hot-toast)
 * [Typescript](https://www.typescriptlang.org/docs/handbook/react.html)
 * [Axios](https://github.com/axios/axios)
 * [Date-fns](https://date-fns.org/)
 * [Highcharts-react](https://github.com/highcharts/highcharts-react)
+* [Docker](https://www.docker.com/)
 
 ### How to run 
 
@@ -30,6 +30,8 @@ npm run start
 ```
 
 ### Docker build and run
+
+## Run in production mode
 
 To run the current project install the prerequisites inside project's directory.
 I have used multi-stage build in Docker, in order to optimize the size of the built image. 
