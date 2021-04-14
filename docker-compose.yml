@@ -10,4 +10,13 @@ services:
     volumes:
       - ./src:/app/src
     ports:
+      - 3000:80
+
+  production:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: crypto-production
+    ports:
       - 8080:80
