@@ -20,7 +20,7 @@ module.exports = merge(commonConfig, {
             errors: true
         },
         watchOptions: {
-            poll: true 
+            poll: true
           },
         port: 80,
         host: '0.0.0.0',
