@@ -29,9 +29,21 @@ npm install
 npm run start
 ```
 
-### Docker build and run
+## Docker build and run
 
-## Run in production mode
+### Run in development mode
+
+To run the project in webpack dev server via docker run:
+
+```
+cd crypto-finder
+
+docker-compose up web
+```
+
+ *Development listening at:* **localhost:3000**.
+
+### Run in production mode
 
 To run the current project install the prerequisites inside project's directory.
 I have used multi-stage build in Docker, in order to optimize the size of the built image. 
@@ -41,11 +53,10 @@ In order to run the project please run:
 ```
 cd crypto-finder
 
-docker build . -t crypto-finder
-docker run -p 80:80 crypto-finder
+docker-compose up production
 ```
 
- *Note for docker:* Open **localhost** (without a port).
+ *Production listening at:*  **localhost:8080**.
 
 ### Features implemented
 * Paginated list of coins and their overviews

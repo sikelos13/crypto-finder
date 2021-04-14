@@ -69,8 +69,9 @@
   },
   "scripts": {
     "start": "webpack serve --config webpack.dev.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "build": "npm run clean && webpack --config webpack.prod.js --color --bail",
+    "test": "node scripts/test.js",
+    "clean": "rimraf dist"
   },
   "browserslist": {
     "production": [
