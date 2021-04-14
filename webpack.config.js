@@ -87,7 +87,7 @@ module.exports = {
     context: path.resolve(''),
     stats: {
         children: true
-    },    
+    },
     entry,
     output,
     resolve: {

@@ -1,10 +1,13 @@
 version: "3.7"
 
-services: 
-  web: 
-      build:
-        context: .
-        dockerfile: Dockerfile
-      container_name: crypto-webpack
-      ports: 
-        - 8080:80
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: devserver
+    container_name: crypto-webpack
+    volumes:
+      - ./src:/app/src
+    ports:
+      - 8080:80
